@@ -2,8 +2,6 @@ import iziToast from 'izitoast';
 
 import 'izitoast/dist/css/iziToast.min.css';
 
-import resolveSvg from '../img/resolve.svg';
-
 const form = document.querySelector('.form');
 const delayInput = document.querySelector('input[name="delay"]');
 
@@ -33,7 +31,7 @@ form.addEventListener('submit', function (event) {
         backgroundColor: '#59a10d',
         messageColor: '#ffffff',
         position: 'topRight',
-        resolveSvg,
+        iconUrl: '../img/resolve.svg',
         closeOnEscape: true,
         close: false,
       });
@@ -45,7 +43,7 @@ form.addEventListener('submit', function (event) {
         message: 'Illegal operation',
         backgroundColor: '#ef4040',
         messageColor: '#ffffff',
-        rejectImg,
+        iconUrl: '../img/error-icon.svg',
         position: 'topRight',
         closeOnEscape: true,
         close: false,
