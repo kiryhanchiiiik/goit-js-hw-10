@@ -6,12 +6,21 @@ import iziToast from 'izitoast';
 
 import 'izitoast/dist/css/iziToast.min.css';
 
-import iconUrl from '../img/error-icon.svg';
+import errorIcon from '../img/error-icon.svg';
 
 let userSelectedDate;
 
 const dateTimePicker = document.getElementById('datetime-picker');
 const startButton = document.querySelector('[data-start]');
+
+function btnOn() {
+  startButton.disabled = false;
+}
+function btnOff() {
+  startButton.disabled = true;
+}
+
+btnOff(); // btn disabled
 
 const timerFields = {
   days: document.querySelector('[data-days]'),
@@ -37,14 +46,14 @@ const options = {
         messageColor: 'white',
         color: 'red',
         backgroundColor: '#ef4040',
-        iconUrl,
+        iconUrl: errorIcon,
         position: 'topRight',
         closeOnEscape: true,
         close: false,
       });
-      startButton.disabled = true;
+      btnOn();
     } else {
-      startButton.disabled = false;
+      btnOn();
     }
   },
 };
@@ -83,7 +92,7 @@ function updateTimer() {
     timerFields.hours.textContent = '00';
     timerFields.minutes.textContent = '00';
     timerFields.seconds.textContent = '00';
-    startButton.disabled = false;
+    btnOn();
     dateTimePicker.disabled = false;
     return;
   }
@@ -96,7 +105,7 @@ function updateTimer() {
 
 let timerInterval;
 function startTimer() {
-  startButton.disabled = true;
+  btnOff();
   dateTimePicker.disabled = true;
   timerInterval = setInterval(updateTimer, 1000);
 }

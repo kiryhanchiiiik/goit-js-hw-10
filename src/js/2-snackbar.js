@@ -2,6 +2,10 @@ import iziToast from 'izitoast';
 
 import 'izitoast/dist/css/iziToast.min.css';
 
+import resolveIcon from '../img/resolve.svg';
+
+import errorIcon from '../img/error-icon.svg';
+
 const form = document.querySelector('.form');
 const delayInput = document.querySelector('input[name="delay"]');
 
@@ -31,7 +35,7 @@ form.addEventListener('submit', function (event) {
         backgroundColor: '#59a10d',
         messageColor: '#ffffff',
         position: 'topRight',
-        iconUrl: '../img/resolve.svg',
+        iconUrl: resolveIcon,
         closeOnEscape: true,
         close: false,
       });
@@ -40,10 +44,10 @@ form.addEventListener('submit', function (event) {
       iziToast.show({
         title: 'Error',
         titleColor: '#ffffff',
-        message: 'Illegal operation',
+        message: `Rejected promise in ${delay}ms`,
         backgroundColor: '#ef4040',
         messageColor: '#ffffff',
-        iconUrl: '../img/error-icon.svg',
+        iconUrl: errorIcon,
         position: 'topRight',
         closeOnEscape: true,
         close: false,
